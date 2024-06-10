@@ -31,22 +31,22 @@ class _IconWithAnimatedLabelState extends State<IconWithAnimatedLabel> {
             child: Image.asset(widget.iconImage, color: Constants.mainColor, scale: 8),
           ),
           AnimatedContainer(
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             width: _isExpanded ? 200 : 0,
             height: s.height * 0.05,
-            padding: EdgeInsets.all(4),
+            padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               color: Constants.mainColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: AnimatedOpacity(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               opacity: _isExpanded ? 1 : 0,
               child: Center(
                 child: SelectableText(
                   widget.labelText,
-                  style: TextStyle(color: Colors.black, fontSize: 14),
+                  style: const TextStyle(color: Colors.black, fontSize: 14),
                 ),
               ),
             ),

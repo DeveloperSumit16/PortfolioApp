@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "40720931979",
+    "project_id": "portfolioapp-e15d8",
+    "storage_bucket": "portfolioapp-e15d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40720931979:android:cbd8bbf2a1b6354e71088e",
+        "android_client_info": {
+          "package_name": "com.example.odyssey"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4L0mxvuQNcqkxw1_bBhMZXjgmJYR8y-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

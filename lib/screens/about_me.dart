@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:odyssey/constants/colors.dart';
 import 'package:odyssey/screens/contact_me.dart';
@@ -15,13 +14,13 @@ class AboutMe extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Constants.bodyColor,
-        appBar: CustomAppBar('About Me'),
-        drawer: CustomDrawer(),
+        appBar: const CustomAppBar('About Me'),
+        drawer: const CustomDrawer(),
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -119,7 +118,7 @@ class AboutMe extends StatelessWidget {
                     ),
                     SizedBox(height: s.height * 0.01),
                     SelectableText(
-                      "Mobile: +91 8320256630\nEmail: kumarsumi.das2002@gmail.com\nLinkedIn: www.linkedin.com/in/sumit-kumar-das-7b4a8a2a4\nGitHub: github.com/yourprofile",
+                      "Mobile: +91 8320256630\nEmail: kumarsumi.das2002@gmail.com\nLinkedIn: www.linkedin.com/in/sumit-kumar-das-7b4a8a2a4\nGitHub: https://github.com/DeveloperSumit16",
                       style: GoogleFonts.crimsonText(
                         fontSize: 18,
                         color: Colors.white,
@@ -134,10 +133,10 @@ class AboutMe extends StatelessWidget {
                               elevation: 8,
                               shadowColor: Constants.mainColor),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => ContactMe()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactMe()));
                           },
-                          icon: Icon(Icons.web, size: 18),
-                          label: Text(
+                          icon: const Icon(Icons.web, size: 18),
+                          label: const Text(
                             "Contact Me",
                             style: TextStyle(fontSize: 18),
                           ),

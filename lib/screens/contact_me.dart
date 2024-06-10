@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:odyssey/constants/colors.dart';
@@ -13,7 +14,9 @@ class ContactMe extends StatefulWidget {
 }
 
 class _ContactMeState extends State<ContactMe> {
-  bool _isOpen = false;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,7 @@ class _ContactMeState extends State<ContactMe> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 width: double.infinity,
                 height: s.height * 0.51,
                 decoration: BoxDecoration(
@@ -49,6 +52,7 @@ class _ContactMeState extends State<ContactMe> {
                       ),
                       const Divider(),
                       TextFormField(
+                        controller: nameController,
                         cursorColor: Constants.mainColor,
                         style: const TextStyle(color: Constants.mainColor),
                         decoration: InputDecoration(
@@ -68,6 +72,7 @@ class _ContactMeState extends State<ContactMe> {
                       ),
                       SizedBox(height: s.height * 0.011),
                       TextFormField(
+                        controller: emailController,
                         cursorColor: Constants.mainColor,
                         style: const TextStyle(color: Constants.mainColor),
                         decoration: InputDecoration(
@@ -87,6 +92,7 @@ class _ContactMeState extends State<ContactMe> {
                       ),
                       SizedBox(height: s.height * 0.011),
                       TextFormField(
+                        controller: messageController,
                         maxLines: 5,
                         cursorColor: Constants.mainColor,
                         style: const TextStyle(color: Constants.mainColor),
@@ -112,7 +118,9 @@ class _ContactMeState extends State<ContactMe> {
                               backgroundColor: Constants.mainColor,
                               elevation: 8,
                               shadowColor: Constants.mainColor),
-                          onPressed: () {},
+                          onPressed: () async {
+                            await _sendMessage(context);
+                          },
                           icon: const Icon(Icons.send, size: 18),
                           label: const Text(
                             "Send Message",
@@ -125,20 +133,85 @@ class _ContactMeState extends State<ContactMe> {
                 ),
               ),
               SizedBox(height: s.height * 0.04),
-              IconWithAnimatedLabel(iconImage: "assets/images/phone_icon.png", labelText: "+91 832025660"),
+              const IconWithAnimatedLabel(
+                  iconImage: "assets/images/phone_icon.png",
+                  labelText: "+91 832025660"),
               SizedBox(height: s.height * 0.03),
-              IconWithAnimatedLabel(iconImage: "assets/images/email_icon.png", labelText: "kumarsumi.das2002@gmail.com"),
+              const IconWithAnimatedLabel(
+                  iconImage: "assets/images/email_icon.png",
+                  labelText: "kumarsumi.das2002@gmail.com"),
               SizedBox(height: s.height * 0.03),
-              IconWithAnimatedLabel(iconImage: "assets/images/linked_icon.png", labelText: "www.linkedin.com/in/sumit-kumar-das-7b4a8a2a4"),
+              const IconWithAnimatedLabel(
+                  iconImage: "assets/images/linked_icon.png",
+                  labelText: "www.linkedin.com/in/sumit-kumar-das-7b4a8a2a4"),
               SizedBox(height: s.height * 0.03),
-              IconWithAnimatedLabel(iconImage: "assets/images/github_icon.png", labelText: "www.Git_Hub_Link.com"),
+              const IconWithAnimatedLabel(
+                  iconImage: "assets/images/github_icon.png",
+                  labelText: "https://github.com/DeveloperSumit16"),
               SizedBox(height: s.height * 0.03),
-              IconWithAnimatedLabel(iconImage: "assets/images/whatsapp_icon.png", labelText: "+91 832025660"),
+              const IconWithAnimatedLabel(
+                  iconImage: "assets/images/whatsapp_icon.png",
+                  labelText: "+91 832025660"),
               SizedBox(height: s.height * 0.04),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _sendMessage(BuildContext context) async {
+    String name = nameController.text;
+    String email = emailController.text;
+    String message = messageController.text;
+
+    if (name.isEmpty || email.isEmpty || message.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "All fields are required!",
+            style: TextStyle(
+                color: Constants.bodyColor, fontWeight: FontWeight.w700),
+          ),
+          backgroundColor: Constants.mainColor,
+        ),
+      );
+      return;
+    }
+
+    try {
+      await FirebaseFirestore.instance.collection('messages').add({
+        'name': name,
+        'email': email,
+        'message': message,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Message sent successfully!",
+            style: TextStyle(
+                color: Constants.bodyColor, fontWeight: FontWeight.w700),
+          ),
+          backgroundColor: Constants.mainColor,
+        ),
+      );
+
+      nameController.clear();
+      emailController.clear();
+      messageController.clear();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Failed to send message: $e",
+            style: const TextStyle(
+                color: Constants.bodyColor, fontWeight: FontWeight.w700),
+          ),
+          backgroundColor: Constants.mainColor,
+        ),
+      );
+    }
   }
 }

@@ -12,7 +12,6 @@ class MySkills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var s = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Constants.bodyColor,
       appBar: const CustomAppBar("My Skills"),
@@ -35,14 +34,14 @@ class MySkills extends StatelessWidget {
                   direction: Axis.horizontal,
                   children: [
                     HardSkillIcons(
-                        "assets/images/dart_icon.png", 1.4, 0.9, "90 %"),
+                        "assets/images/dart_icon.png", 1.4, 0.7, "70 %"),
                     HardSkillIcons(
-                        "assets/images/flutter_icon.png", 2.4, 0.9, "90 %"),
+                        "assets/images/flutter_icon.png", 2.4, 0.7, "70 %"),
                     HardSkillIcons(
-                        "assets/images/firebase_icon.png", 2.7, 0.7, "70 %"),
+                        "assets/images/firebase_icon.png", 2.7, 0.6, "60 %"),
                     HardSkillIcons(
-                        "assets/images/git_icon.png", 2.9, 0.8, "80 %"),
-                    HardSkillIcons("assets/images/api_icon.png", 2.8, 0.7, "70 %",
+                        "assets/images/git_icon.png", 2.9, 0.7, "70 %"),
+                    HardSkillIcons("assets/images/api_icon.png", 2.8, 0.6, "60 %",
                         imageColor: Colors.white),
                     HardSkillIcons(
                         "assets/images/postman_icon.png", 2.7, 0.6, "60 %"),

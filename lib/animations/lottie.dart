@@ -16,8 +16,8 @@ class _LottieAnimationState extends State<LottieAnimation> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () { 
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MyPortfolio()));
+    Timer(const Duration(seconds: 3), () { 
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const MyPortfolio()));
     });
   }
 

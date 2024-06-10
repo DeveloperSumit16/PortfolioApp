@@ -12,7 +12,6 @@ class SoftSkills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var s = MediaQuery.of(context).size;
     return Row(
       children: [
         Expanded(

@@ -16,7 +16,7 @@ class WorkContainers extends StatelessWidget {
 
     return Container(
       height: s.height / 1.35,
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         border: Border.all(color: Constants.mainColor, width: 4),
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
@@ -28,11 +28,11 @@ class WorkContainers extends StatelessWidget {
               workTitle,
               style: GoogleFonts.playfairDisplay(color: Colors.black, fontSize: 24),
             ),
-            Divider(color: Constants.mainColor),
+            const Divider(color: Constants.mainColor),
             Image.asset(workImage, fit: BoxFit.cover, scale: 2, alignment: Alignment.center,),
             SizedBox(height: s.height*0.025),
             Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Constants.mainColor,
                 border: Border.all(color: Constants.bodyColor, width: 2),

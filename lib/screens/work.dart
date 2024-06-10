@@ -14,22 +14,22 @@ class Work extends StatelessWidget {
     var s = MediaQuery.of(context).size;
 
     List cards = [
-      WorkContainers("Portfolio App", "assets/images/portfolio_app.png",
+      const WorkContainers("Portfolio App", "assets/images/portfolio_app.png",
           "This comes with an attractive and minimilastic look. The purpose of this app is to showcase the introduction and projects build my me or on which i have worked on."),
-      WorkContainers("Company Ledger App", "assets/images/flutter_icon.png",
+      const WorkContainers("Company Ledger App", "assets/images/flutter_icon.png",
           "I have worked on this project during my internship at Fuerte Developers. This was specifically a web app. I have worked on this app during its developing phase. Having a hands-on experience on this kind of app helped me to build Responsive apps that will be compatible to both mobile and desktop screen. Working on this app introduces me to several flutter  packages for better enhancement of the app. Technologies like Postman and intergrating APIs built on node.js helped me to understand and perform different CRUD operations."),
-      WorkContainers("Grocery App", "assets/images/flutter_icon.png",
+      const WorkContainers("Grocery App", "assets/images/flutter_icon.png",
           "This was also a project I got a chance to work on during its developemt phase. It is a Grocery App that was lisenced by my previous company Fuerte Developers. My role on this app was to create interactive and responsive screens for the app. Working on this app helps me a lot to understand flutter core concepts."),
-      WorkContainers("Food App", "assets/images/food_app2.png",
+      const WorkContainers("Food App", "assets/images/food_app2.png",
           "To understand the concepts of Firebase, Firestore I choose to work on this app. Tere were many firebase concepts of firebase like signup and login, forget password, store data and images, deleting user, even other features like Flutter Stripe Payment gateway, helps me to understand somne core features and concepts of firebase and payment portal."),
-      WorkContainers("Quiz App", "assets/images/quiz_app2.png",
+      const WorkContainers("Quiz App", "assets/images/quiz_app2.png",
           "This is a small app that comes with the use of some flutter mobile app Widgets and also helped me to create a attractive app."),
     ];
 
     return Scaffold(
       backgroundColor: Constants.bodyColor,
-      appBar: CustomAppBar("My Works"),
-      drawer: CustomDrawer(),
+      appBar: const CustomAppBar("My Works"),
+      drawer: const CustomDrawer(),
       body: Column(
         children: [
           SizedBox(
